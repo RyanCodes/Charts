@@ -442,6 +442,10 @@ extension ChartDataSet: RangeReplaceableCollection {
         entries.replaceSubrange(subrange, with: newElements)
         notifyDataSetChanged()
     }
+    public func replaceSubrange<C>(_ subrange: Swift.Range<Index>, with newElements: C) where C : Collection, Element == C.Element {
+        entries.replaceSubrange(subrange, with: newElements)
+        notifyDataSetChanged()
+    }
     
     public func append(_ newElement: Element) {
         calcMinMax(entry: newElement)
